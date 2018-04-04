@@ -35,19 +35,9 @@ line ssh
 exit
 
 !
-interface 0/13
-vlan tagging 1
-exit
-
-interface 0/24
-description 'Trendnet Trunk'
-vlan tagging 1
-snmp-server enable traps violation
-exit
 
 interface 0/27
 vlan participation include 2-3,22-23,53,231-233,666-667
-
 vlan tagging 2-3,22-23,53,231-233,666-667
 exit
 
