@@ -1,0 +1,101 @@
+!Current Configuration:
+!
+!System Description "LB4M 48x1G 2x10G, 1.1.0.8, VxWorks 6.6"
+!System Software Version "1.1.0.8"
+!System Up Time          "283 days 17 hrs 18 mins 38 secs"
+!Cut-through mode is configured as disabled
+!Additional Packages     FASTPATH QOS
+!Current SNTP Synchronized Time: Not Synchronized
+!
+network protocol none
+network parms 192.168.5.12 255.255.255.0 192.168.5.1
+vlan database
+vlan 2-3,22-23,53,231-233,666-667
+vlan name 2 "LAN_TEST"
+vlan name 3 "LAN_PROD"
+vlan name 22 "LAN_VPN_VYPERVPN"
+vlan name 23 "LAN_VPN_TORGUARD"
+vlan name 53 "IOT"
+vlan name 231 "VNY"
+vlan name 232 "VVA"
+vlan name 233 "VSITE"
+vlan name 666 "INTERNET_OPTIMUM"
+vlan name 667 "INTERNET_VERIZON"
+exit
+
+configure
+line console
+session-timeout 60
+exit
+
+line telnet
+exit
+
+line ssh
+exit
+
+!
+interface 0/13
+vlan tagging 1
+exit
+
+interface 0/24
+description 'Trendnet Trunk'
+vlan tagging 1
+snmp-server enable traps violation
+exit
+
+interface 0/27
+vlan participation include 2-3,22-23,53,231-233,666-667
+
+vlan tagging 2-3,22-23,53,231-233,666-667
+exit
+
+interface 0/33
+vlan participation include 2-3,22-23,53,231-233,666-667
+vlan tagging 2-3,22-23,53,231-233,666-667
+exit
+
+interface 0/39
+vlan participation include 2-3,22-23,53,231-233,666-667
+vlan tagging 2-3,22-23,53,231-233,666-667
+exit
+
+interface 0/40
+vlan participation include 2-3,22-23,53,231-233,666-667
+vlan tagging 2-3,22-23,53,231-233,666-667
+exit
+
+interface 0/41
+vlan participation include 2-3,22-23,53,231-233,666-667
+vlan tagging 2-3,22-23,53,231-233,666-667
+exit
+
+interface 0/42
+
+vlan participation include 2-3,22-23,53,231-233,666-667
+vlan tagging 2-3,22-23,53,231-233,666-667
+exit
+
+interface 0/43
+vlan participation include 2-3,22-23,53,231-233,666-667
+vlan tagging 2-3,22-23,53,231-233,666-667
+exit
+
+interface 0/44
+vlan participation include 2-3,22-23,53,231-233,666-667
+vlan tagging 2-3,22-23,53,231-233,666-667
+exit
+
+interface 0/45
+vlan participation include 2-3,22-23,53,231-233,666-667
+vlan tagging 2-3,22-23,53,231-233,666-667
+exit
+
+interface 0/46
+description '5L-ESX02-VMNIC0-Black'
+vlan participation include 2-3,22-23,53,231-233,666-667
+vlan tagging 2-3,22-23,53,231-233,666-667
+exit
+
+exit
