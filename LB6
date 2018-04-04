@@ -1,0 +1,59 @@
+!Current Configuration:
+!
+!System Description "Quanta LB6M, 1.2.0.14, Linux 2.6.21.7"
+!System Software Version "1.2.0.14"
+!System Up Time          "156 days 23 hrs 44 mins 36 secs"
+!Additional Packages     FASTPATH QOS
+!Current SNTP Synchronized Time: Not Synchronized
+!
+network protocol none
+network parms 192.168.5.11 255.255.255.0 192.168.5.1
+vlan database
+vlan 100
+vlan name 100 "IOT-Devices"
+vlan routing 100 1
+exit
+ip ssh server enable
+configure
+ip routing
+aaa authentication enable "enableList" enable
+line console
+exit
+line telnet
+exit
+line ssh
+exit
+spanning-tree configuration name "08-9E-01-6C-79-A6"
+!
+interface 0/1
+description 'Freenas'
+exit
+interface 0/3
+description 'tower'
+exit
+interface 0/9
+description '5L-ESX-01'
+exit
+interface 0/10
+description '5L-ESX-02'
+exit
+interface 0/11
+description '5L-ESX-03'
+exit
+interface 0/16
+description '5L-ESX-02-green'
+exit
+interface 0/17
+description '5L-ESX-03-green'
+exit
+interface 0/24
+description 'TO-LB4-UL2'
+exit
+interface 2/1
+routing
+exit
+router rip
+exit
+router ospf
+exit
+exit
