@@ -23,6 +23,7 @@ vlan name 666 "INTERNET_OPTIMUM"
 vlan name 667 "INTERNET_VERIZON"
 exit
 
+ip ssh server enable
 configure
 line console
 session-timeout 60
